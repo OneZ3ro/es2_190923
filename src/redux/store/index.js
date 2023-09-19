@@ -6,6 +6,7 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 
 import favouriteReducer from "../reducers/favouritesReducer";
 import jobsReducers from "../reducers/jobsReducers";
+import errorHandlerReducer from "../reducers/errorHandlerReducer";
 
 const persistConfig = {
   key: "root",
@@ -20,6 +21,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   favourites: favouriteReducer,
   jobs: jobsReducers,
+  error: errorHandlerReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

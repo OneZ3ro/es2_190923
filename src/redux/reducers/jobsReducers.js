@@ -1,16 +1,25 @@
-import { GET_COMPANY, GET_JOB } from "../actions";
+import { GET_JOB } from "../../components/MainSearch";
+import { GET_COMPANY, RESET_IS_LOADING } from "../actions";
 
 const initialState = {
-  content: [],
+  // content: [],
   company: [],
+  isLoading: true,
 };
 
 const jobsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case RESET_IS_LOADING:
+      return {
+        ...state,
+        isLoading: true,
+      };
+
     case GET_JOB:
       return {
         ...state,
-        content: action.payload,
+        // content: action.payload,
+        isLoading: false,
       };
     case GET_COMPANY:
       return {
